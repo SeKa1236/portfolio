@@ -5,115 +5,173 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>楠本知足 | ポートフォリオ</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* スイッチ（タブメニュー）用の追加スタイル */
+    .switch-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px auto;
+      max-width: 800px;
+      flex-wrap: wrap;
+    }
+    .switch-btn {
+      padding: 10px 20px;
+      font-weight: bold;
+      border: 2px solid #00ffff;
+      background: #000;
+      color: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .switch-btn:hover, .switch-btn.active {
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 10px #00ffff;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
   <!-- ヘッダーエリア（タイトルとステータスのみ） -->
   <header class="hero-header">
     <div class="header-inner">
-      <h1>基本　情報</h1>
+      <h1>基本 情報</h1>
       <p class="status">🔥 現在の活動：プログラミング猛勉強中</p>
     </div>
   </header>
 
+  <!-- 上部の切替スイッチバー -->
+  <div class="switch-nav">
+    <button class="switch-btn active" onclick="switchTab('profile')">Profile</button>
+    <button class="switch-btn" onclick="switchTab('skills')">Skills</button>
+    <button class="switch-btn" onclick="switchTab('works')">Works</button>
+    <button class="switch-btn" onclick="switchTab('contact')">Contact</button>
+  </div>
+
   <main>
-    <!-- プロフィール枠（左側に画像をまとめたレイアウト） -->
-    <section class="card profile-card">
-      <h2>Profile（プロフィール）</h2>
-      
-      <div class="profile-container">
-        <!-- 左側：重ね合わせた画像（背景四角＋丸アイコン） -->
-        <div class="avatar-stage">
-          <!-- 1. 後ろの四角い背景画像（廃校した都会） -->
-          <div class="square-bg-wrapper">
-            <img src="abandoned-city.jpg" alt="背景：廃校した都会" class="square-bg">
+    <!-- 1. プロフィール枠 -->
+    <div id="tab-profile" class="tab-content active">
+      <section class="card profile-card">
+        <h2>Profile（プロフィール）</h2>
+        
+        <div class="profile-container">
+          <!-- 左側：重ね合わせた画像（背景四角＋丸アイコン） -->
+          <div class="avatar-stage">
+            <div class="square-bg-wrapper">
+              <img src="abandoned-city.jpg" alt="背景：廃校した都会" class="square-bg">
+            </div>
+            <img src="cat-profile.jpg" alt="楠本知足のプロフィール写真" class="profile-circle">
           </div>
-          <!-- 2. 前の丸いプロフィール画像（猫と映ってる写真） -->
-          <img src="cat-profile.jpg" alt="楠本知足のプロフィール写真" class="profile-circle">
-        </div>
 
-        <!-- 右側：プロフィール詳細＆自己紹介文 -->
-        <div class="profile-info">
-          <table class="profile-table">
-            <tr>
-              <th>氏名</th>
-              <td>楠本 知足 / Kusumoto Chitaru</td>
-            </tr>
-            <tr>
-              <th>所属校</th>
-              <td>大阪公立大学工業高等専門学校</td>
-            </tr>
-            <tr>
-              <th>コース</th>
-              <td>2年 知能情報 Iコース</td>
-            </tr>
-          </table>
-          <div class="bio-text">
-            <p>
-              普通の高校生と変わらぬプログラミング知識しか持ってませんが、高専生らしいプログラミング知識や技術を身につけたいです。
-            </p>
+          <!-- 右側：プロフィール詳細＆自己紹介文 -->
+          <div class="profile-info">
+            <table class="profile-table">
+              <tr>
+                <th>氏名</th>
+                <td>楠本 知足 / Kusumoto Chitaru</td>
+              </tr>
+              <tr>
+                <th>所属校</th>
+                <td>大阪公立大学工業高等専門学校</td>
+              </tr>
+              <tr>
+                <th>コース</th>
+                <td>2年 知能情報 Iコース</td>
+              </tr>
+            </table>
+            <div class="bio-text">
+              <p>
+                普通の高校生と変わらぬプログラミング知識しか持ってませんが、高専生らしいプログラミング知識や技術を身につけたいです。
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- スキル一覧（現在の能力値） -->
-    <section class="card">
-      <h2>Skills（現在の能力値）</h2>
-      <div class="skill-list">
-        <div class="skill-item">
-          <span class="skill-name">Python</span>
-          <span class="stars">★★☆☆☆</span>
+    <!-- 2. スキル一覧 -->
+    <div id="tab-skills" class="tab-content">
+      <section class="card">
+        <h2>Skills（現在の能力値）</h2>
+        <div class="skill-list">
+          <div class="skill-item">
+            <span class="skill-name">Python</span>
+            <span class="stars">★★☆☆☆</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">C言語</span>
+            <span class="stars">★☆☆☆☆</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">GitHub</span>
+            <span class="stars">★☆☆☆☆</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">JavaScript</span>
+            <span class="stars">★☆☆☆☆</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <span class="skill-name">C言語</span>
-          <span class="stars">★☆☆☆☆</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">GitHub</span>
-          <span class="stars">★☆☆☆☆</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">JavaScript</span>
-          <span class="stars">★☆☆☆☆</span>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- 制作物・実績 -->
-    <section class="card">
-      <h2>Works（制作物）</h2>
-      <div class="works-grid">
-        <!-- 制作物1：高２課題4の作品 -->
-        <!-- 修正前：1. <h3>「誰がどうした」文章生成プログラム ... -->
-        <!-- 修正後 -->
-      <div class="work-card">
-        <img src="kadai4-result.png" alt="課題4：誰がどうした生成ツール" class="work-img">
-       <h3>1. 「誰がどうした」文章生成プログラム</h3>
-       <p>高２の「課題4」で制作したテキストランダム生成ツール。構文の組み合わせとロジックを意識して作成しました。</p>
-       <a href="https://colab.research.google.com/drive/1U4Wu2z8GLHMkP80wIArNMuiuZY4P4UyR?usp=sharing" target="_blank" rel="noopener noreferrer" class="sns-btn">作品はコチラ</a>
-      </div>
-        <!-- 制作物2：ゲーム（製作途中） -->
-        <div class="work-card">
-          <img src="sakuseityunomono.png" alt="製作途中のゲーム画面" class="work-img">
-          <h3>2. 自作ゲーム（製作途中）</h3>
-          <p>現在開発を進めているオリジナルゲームです。</p>
+    <!-- 3. 制作物・実績 -->
+    <div id="tab-works" class="tab-content">
+      <section class="card">
+        <h2>Works（制作物）</h2>
+        <div class="works-grid">
+          <div class="work-card">
+            <img src="kadai4-result.png" alt="課題4：誰がどうした生成ツール" class="work-img">
+            <h3>1. 「誰がどうした」文章生成プログラム</h3>
+            <p>高２の「課題4」で制作したテキストランダム生成ツール。構文の組み合わせとロジックを意識して作成しました。</p>
+            <a href="https://colab.research.google.com/drive/1U4Wu2z8GLHMkP80wIArNMuiuZY4P4UyR?usp=sharing" target="_blank" rel="noopener noreferrer" class="sns-btn">作品はコチラ</a>
+          </div>
+          <div class="work-card">
+            <img src="sakuseityunomono.png" alt="製作途中のゲーム画面" class="work-img">
+            <h3>2. 自作ゲーム（製作途中）</h3>
+            <p>現在開発を進めているオリジナルゲームです。</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- SNS・連絡先 -->
-    <section class="card">
-      <h2>Contact & SNS</h2>
-      <div class="sns-links">
-        <a href="https://x.com/Se_ku3624_" target="_blank" rel="noopener noreferrer" class="sns-btn x-btn">X (えすけ～のサブ垢)</a>
-      </div>
-    </section>
+    <!-- 4. SNS・連絡先 -->
+    <div id="tab-contact" class="tab-content">
+      <section class="card">
+        <h2>Contact & SNS</h2>
+        <div class="sns-links">
+          <a href="https://x.com/Se_ku3624_" target="_blank" rel="noopener noreferrer" class="sns-btn x-btn">X (えすけ～のサブ垢)</a>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2026 Chitaru Kusumoto - Osaka Metropolitan University College of Technology</p>
   </footer>
 
+  <!-- スイッチ切替用JavaScript -->
+  <script>
+    function switchTab(tabName) {
+      // すべてのコンテンツを非表示にする
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // すべてのボタンの選択状態を解除する
+      const buttons = document.querySelectorAll('.switch-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // 選択されたコンテンツとボタンだけ表示・有効化する
+      document.getElementById('tab-' + tabName).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
 </body>
 </html>
