@@ -19,27 +19,27 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 15px;
-      max-width: 1000px;
+      gap: 20px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 10px 20px;
+      padding: 20px;
     }
 
-    /* 左上の「えすけ～」ロゴテキスト（BestTen-CRT適用＆青い欄にちょうどいい大きさ） */
+    /* ★左上の「えすけ～」ロゴテキスト（PCでは大きく、スマホでもはみ出さないサイズに自動調整） */
     .header-logo-text {
-      font-family: 'Best10Font', sans-serif;
-      font-size: 36px;
-      line-height: 50px;
-      margin: 0;
-      color: #ffffff;
-      letter-spacing: 2px;
+      font-family: 'Best10Font', sans-serif !important;
+      font-size: clamp(44px, 6vw, 68px) !important; /* 既存のstyle.cssより優先して大きく表示 */
+      line-height: 1.1 !important;
+      margin: 0 !important;
+      color: #ffffff !important;
+      letter-spacing: 4px;
       user-select: none;
     }
 
     /* ステータス表示の微調整 */
     .status-bar {
       text-align: center;
-      margin: 10px auto 20px;
+      margin: 15px auto 20px;
     }
 
     /* 四角く区切って連結したスイッチ（タブメニュー） */
@@ -50,10 +50,10 @@
     }
 
     .switch-btn {
-      height: 50px;
-      padding: 0 24px;
+      height: 64px; /* 大きくなったロゴに合わせて高さアップ */
+      padding: 0 28px;
       font-weight: bold;
-      font-size: 15px;
+      font-size: 16px;
       border: none;
       border-right: 1px solid #38bdf8;
       border-radius: 0;
@@ -71,6 +71,19 @@
       background: #38bdf8;
       color: #0f172a;
       box-shadow: none;
+    }
+
+    /* スマホ画面用の調整（ボタンが横並びで収まるようにする） */
+    @media (max-width: 600px) {
+      .switch-nav {
+        width: 100%;
+      }
+      .switch-btn {
+        flex: 1;
+        height: 48px;
+        padding: 0 8px;
+        font-size: 13px;
+      }
     }
 
     .tab-content {
@@ -125,7 +138,7 @@
 </head>
 <body>
 
-  <!-- ヘッダーエリア（左上にBestTen-CRTの「えすけ～」、右側に四角く連結した切替スイッチ） -->
+  <!-- ヘッダーエリア -->
   <header class="hero-header">
     <div class="header-inner">
       <h1 class="header-logo-text">えすけ～</h1>
@@ -268,7 +281,6 @@
 
   <!-- スイッチ切替 ＆ 画像切り替え JavaScript -->
   <script>
-    // タブ切り替え機能
     function switchTab(tabName, clickedBtn) {
       const contents = document.querySelectorAll('.tab-content');
       contents.forEach(content => content.classList.remove('active'));
@@ -280,7 +292,6 @@
       clickedBtn.classList.add('active');
     }
 
-    // 画像スライダー機能（4枚対応）
     const kadai4Images = [
       "kadai4-result.png",
       "kadai4-img2.png",
