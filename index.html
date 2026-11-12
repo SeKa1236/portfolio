@@ -6,7 +6,14 @@
   <title>えすけ～ | ポートフォリオ</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ヘッダーのレイアウト調整（左にロゴ画像、右にタブスイッチを横並び） */
+    /* ★Best10-FONTの読み込み設定（ファイル名に合わせて変更してください） */
+    @font-face {
+      font-family: 'Best10Font';
+      src: url('BestTen-DOT.otf') format('opentype');
+      font-display: swap;
+    }
+
+    /* ヘッダーのレイアウト調整 */
     .hero-header .header-inner {
       display: flex;
       justify-content: space-between;
@@ -18,12 +25,15 @@
       padding: 10px 20px;
     }
 
-    /* 左上の「えすけ～」ロゴ画像 */
-    .header-logo {
-      height: 50px; /* スイッチバーと同じ高さになるよう調整 */
-      width: auto;
-      display: block;
-      object-fit: contain;
+    /* 左上の「えすけ～」ロゴテキスト（Best10-FONT適用＆青い欄に合うサイズ） */
+    .header-logo-text {
+      font-family: 'Best10Font', sans-serif;
+      font-size: 36px; /* 青い欄・スイッチバーの高さ(50px)にちょうど収まる大きさ */
+      line-height: 50px;
+      margin: 0;
+      color: #ffffff;
+      letter-spacing: 2px;
+      user-select: none;
     }
 
     /* ステータス表示の微調整 */
@@ -40,25 +50,23 @@
     }
 
     .switch-btn {
-      height: 50px; /* ロゴ画像と同じ高さに統一 */
+      height: 50px;
       padding: 0 24px;
       font-weight: bold;
       font-size: 15px;
       border: none;
-      border-right: 1px solid #38bdf8; /* 四角い仕切り線 */
-      border-radius: 0; /* 角丸をなくして四角にする */
+      border-right: 1px solid #38bdf8;
+      border-radius: 0;
       background: #0a0f1c;
       color: #f1f5f9;
       cursor: pointer;
       transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    /* 一番右のボタンだけ右側の仕切り線を消す（外枠と重なるため） */
     .switch-btn:last-child {
       border-right: none;
     }
 
-    /* ホバー時・選択時（発光をなくし、目に優しい落ち着いた水色に変更） */
     .switch-btn:hover, .switch-btn.active {
       background: #38bdf8;
       color: #0f172a;
@@ -117,11 +125,10 @@
 </head>
 <body>
 
-  <!-- ヘッダーエリア（左上にロゴ画像、右側に四角く連結した切替スイッチ） -->
+  <!-- ヘッダーエリア（左上にBest10-FONTの「えすけ～」、右側に四角く連結した切替スイッチ） -->
   <header class="hero-header">
     <div class="header-inner">
-      <!-- ★「えすけ～」の文字画像のファイル名に変更してください -->
-      <img src="esuke-logo.png" alt="えすけ～" class="header-logo">
+      <h1 class="header-logo-text">えすけ～</h1>
 
       <!-- 上部の切替スイッチバー -->
       <nav class="switch-nav">
@@ -274,7 +281,6 @@
     }
 
     // 画像スライダー機能（4枚対応）
-    // ★追加する画像のファイル名をここに変更してください！
     const kadai4Images = [
       "kadai4-result.png",
       "kadai4-img2.png",
